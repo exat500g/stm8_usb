@@ -37,6 +37,7 @@ target/stm8s_tim1.o
 target/stm8s_tim2.o
 target/stm8s_tim4.o
 target/stm8s_uart1.o
+target/stm8s_iwdg.o
 
 # 库
 libis0.sm8

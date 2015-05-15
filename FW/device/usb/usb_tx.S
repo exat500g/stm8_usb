@@ -10,7 +10,7 @@ L_Bit0_Idle:
 	nop
 	nop
 	nop
-	cpl		20490
+	cpl		20490	;PC=~PC
 	nop
 	nop
 	ld		a, #$06
@@ -146,7 +146,6 @@ L_Bit7_Begin:
 	ld		a, #$06
 
 L_Check_End:
-
 	incw	x
 	dec		_usb_tx_count
 	jrne	L_Bit0_Begin
@@ -156,7 +155,7 @@ L_Tx_End:
 	nop
 	nop
 
-	clr		20490
+	clr		20490   ;EOP low
 
 	ret
 
@@ -234,15 +233,16 @@ L_Bit7_Idle:
 	jra		L_Tx_End
 
 ;
-;	Точка входа
+;c function usb_tx entry
+;usb_tx_buffer_pointer,usb_tx_count is preload
 ;
 _usb_tx:
 
 	ldw		x, _usb_tx_buffer_pointer
 	
 	ld		a,#$40
-	ld		20490,a
+	ld		20490,a		;set GPIOC->ODR=0x40 => PC6=1
 
-	ld		a, #$06						; счет
+	ld		a, #$06
 
 	jra		L_Bit0_Begin

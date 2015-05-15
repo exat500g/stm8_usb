@@ -100,7 +100,7 @@ L_End_Rx:
 
 	call	_usb_rx_ok
 
-	clr		20495					; PD->ODR ???
+	nop		;clr	20495					; PD->ODR ???
 
 	mov		21077,#251 				; 复位定时器中断标志
 
@@ -172,7 +172,7 @@ L_Delay_Begin:
 L_Delay_End:
 
 	ldw		x, #_usb_rx_buffer		; 启动该缓冲器的地址
-	ldw		y, #20491 				; 地址输入
+	ldw		y, #20491 				; 地址输入GPIOC->IDR
 	ld		a, #$0E					; 收到的最大字节数（zaschita!）
 	push	a
 	ld		a, #$80

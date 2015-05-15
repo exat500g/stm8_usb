@@ -13,12 +13,12 @@ SRC_C += stm8s_tim1.c
 SRC_C += stm8s_tim2.c
 SRC_C += stm8s_tim4.c
 SRC_C += stm8s_uart1.c
+SRC_C += stm8s_iwdg.c
 
 SRC_S += usb_rx.S
 SRC_S += usb_tx.S
 
-CROSS_PATH = ./toolchain
-CROSS = $(CROSS_PATH)/
+CROSS = D:/DevelopSoftware/COSMIC/CXSTM8_32K/
 
 INCLUDES += -imcu
 INCLUDES += -imcu/peripherals
