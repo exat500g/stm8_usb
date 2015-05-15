@@ -21,7 +21,9 @@ http://www.amobbs.com/thread-5585137-1-1.html
 
 //TODO:
 //修改USB端口操作方式，释放PORTC的其他端口作为GPIO
+
 想多了，先把其他的PC口释放了再说吧
 
 在我能接触的大部分PC上测试通过，苹果MBA不通过,无法作为BOOTDEVICE使用
+
 自带的工具链会弹出licence窗口,只有我有这个情况吗?
